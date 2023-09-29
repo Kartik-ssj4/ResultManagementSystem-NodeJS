@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+    
+       
+        
+        body {
+            font-family: Arial, sans-serif;
+            
+            background-image: url('/img/teacherDashboard1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
+        .header {
+        background-color: #34495e;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        width: 60%;
+        position: relative;
+        border-radius: 0 0 200px 200px; 
+        transition: ease-in-out 300ms;
+        box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.384);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-links {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+    .header-links a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .header-links a:hover {
+        color: #f39c12; 
+        transition: color 0.3s;
+    }
+    .header-links a:last-child {
+        margin-left: auto;
+    }
+
+    .header:hover {
+        box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.384);
+        padding: 15px;
+        width: 60%;
+        transition: ease-in-out 300ms;
+    }
+
+  
+
+
+       
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-links">
+            
+            <a class="nav-link text-white" href="/teacher/dashboard" style="font-size: x-large;">
+                Teacher Panel
+            </a>
+            
+            <a class="nav-link text-white" href="/teacher/dashboard">
+                <i class="fas fa-tachometer-alt ml-2"></i> &nbsp    Dashboard 
+            </a>
+            
+            <a class="nav-link text-white" href="/teacher/student/create">
+                <i class="fas fa-plus ml-2"> </i> &nbsp Add Student 
+            </a>
+           
+        </div>
+        <a class="nav-link text-white" href="/logout">
+            Logout <i class="fas fa-sign-out-alt ml-2"></i>
+        </a>
+    </div>
+
+    <script>
+        const sidebarLinks = document.querySelectorAll('.nav-link');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebarLinks.forEach(otherLink => {
+                    otherLink.classList.remove('hovered');
+                });
+                link.classList.add('hovered');
+            });
+        });
+    </script>
+</body>
+</html>

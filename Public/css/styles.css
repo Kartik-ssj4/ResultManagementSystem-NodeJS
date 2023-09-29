@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #f8f9fa;
+}
+
+.header {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 60%;
+    position: relative;
+    margin-bottom: 20vh;
+     border-radius: 0 0 200px 200px; 
+     transition: ease-in-out 300ms;
+     box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.384); 
+    
+
+}
+.header:hover{
+    box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.384); 
+    padding: 15px;
+    width: 50%;
+    transition: ease-in-out 300ms;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80%; 
+    max-width: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+    text-align: center; 
+    padding: 30px; 
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tab-btn-container {
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px 20px;
+    background-color: #e5e5e5;
+    color: #34495e;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-btn.active {
+    background-color: #34495e;
+    color: white;
+}
+
+
+.tab-btn:hover {
+    background-color: #293b4a;
+    color: white;
+}
+
+.login-form {
+    display: none;
+    animation: slide-up 0.5s ease-in-out;
+}
+
+.login-form.active {
+    display: block;
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+input {
+    display: block;
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #34495e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #293b4a;
+}
+

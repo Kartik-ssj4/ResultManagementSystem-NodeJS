@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preload" as="image" href="/img/studentBackground.jpg">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: auto;
+            background-color: #f8f9fa;
+            background-image: url('/img/studentBackground.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+          
+
+        }
+    
+        .portfolio-title {
+            margin-bottom: 20px;
+        }
+        .student-info {
+   
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.096); 
+}
+        .portfolio-container {
+            
+            padding: 60px; 
+            max-width: 800px;
+            
+            margin: 0 auto;
+            width: 80%;
+            border: 2px solid #ccc;
+                       background-color: #ffffff;
+            box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.384); 
+            text-align: center;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.384); 
+            transition: ease-in-out 0.3s;
+        }
+  .portfolio-container:hover{
+    transform: scale(1.02);
+  }
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .student-photo {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .student-info {
+            text-align: center;
+        }
+
+        .student-data {
+            margin-top: 20px;
+        }
+        .header {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 60%;
+    position: relative;
+    margin-bottom: 20vh;
+    border-radius: 0 0 200px 200px; 
+    transition: ease-in-out 300ms;
+    box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.384);
+}
+
+.header:hover {
+    box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.384);
+    padding: 15px;
+    width: 50%;
+    transition: ease-in-out 300ms;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header justify-content-between align-items-center">
+        <h1 class="ms-1">Hi, <%= studentData.student.name %>.!</h1>
+        <a class="nav-link text-white" href="/logout">
+            Logout <i class="fas fa-sign-out-alt ml-2"></i>
+        </a>
+    </div>
+    <div class=""></div>
+    
+    
+    <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
+    <div class="portfolio-container">
+        <div class="portfolio-header">
+            <h1><i class="fas fa-user-graduate fa-lg" style="color: #34495e;;"></i> </h1> 
+        <div class="student-photo">
+            <img  class="img-fluid">
+        </div>
+        <div class="student-info border p-3"> 
+          
+            <table class="table table-bordered table-striped table-hover">
+                <tr>
+                    <th class="thead-dark">Name</th>
+                    <td><%= studentData.student.name %></td>
+                </tr>
+                <tr>
+                    <th>Roll No</th>
+                    <td><%= studentData.student.rollNo %></td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <td><%- new Date(studentData.student.dob).toLocaleDateString("en-US", options) %>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Score</th>
+                    <td><%= studentData.student.score %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/notification.js" defer></script>
+  
+   <style>
+    body {
+       
+          font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: auto;
+           background-image: url('/img/teacherDashboard1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            
+          margin-top: 100px;
+           
+            border-radius: 15px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.377);
+            padding: 40px;
+            background-color: #ffffff;
+            transition: transform 0.3s;
+            
+            
+        }
+
+        .custom-table {
+            border: none;
+         
+        }
+
+        .custom-table th, .custom-table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .custom-table thead {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .custom-table a.btn {
+            margin: 0 5px;
+        }
+
+        .custom-table a.btn i {
+            margin-right: 5px;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+    .custom-table {
+   
+    border-radius: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.096); 
+    }
+    .custom-table thead {
+        background-color: #34495e; 
+        color: white; 
+    }
+    
+    
+
+  
+   
+
+    </style>
+</head>
+<body>
+    <%- include("../partials/teacherSideBar.ejs") %>
+   <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
+    <div class="container">
+        
+        
+            <table class="table table-bordered table-striped table-hover custom-table" >
+                <thead >
+                    <tr>
+                        <th>S No.</th>
+                        <th>Roll No</th>
+                        <th>Name</th>
+                        <th>Date of Birth</th>
+                        <th>Score</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% let i = 1; studentData.students.forEach(item => { %>
+                        <tr>
+                            <th scope="row"> <%- i++ %>  </th>
+                            <td> <%- item.rollNo %> </td>
+                            <td> <%- item.name %> </td>
+                            <td> <%- new Date(item.dob).toLocaleDateString("en-US", options) %> </td>
+                            <td> <%- item.score %> </td>
+                            <td class="text-center">
+                                <div class="d-flex justify-content-center align-items-center">
+                                 
+                                    <form action="/teacher/dashboard/student/<%- item.id %>/edit" method="get" class="ml-2">
+                                        <button class="btn btn-primary btn-sm">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </button>
+                                    </form>
+                                    <form action="/teacher/student/<%- item.id %>/delete" method="get" class="ml-2">
+                                        <button class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                    <% }) %>
+                   
+                </tbody>
+            </table>
+       
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

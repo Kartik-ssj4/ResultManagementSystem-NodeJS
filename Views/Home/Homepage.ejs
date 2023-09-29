@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preload" as="image" href="/img/loginBackground.jpg">
+  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/notification.js" defer></script>
+    
+    <script>
+        // Check if viewData is defined before parsing
+        <% if (typeof viewData !== 'undefined') { %>
+            let viewData = JSON.parse('<%- JSON.stringify(viewData) %>');
+        <% } %>
+    </script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url('/img/loginBackground.jpg'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+    
+
+</head>
+<body>
+   
+    <div class="header">
+        <h1>Result Management System</h1>
+    </div>
+    <div class="tabs">
+        <div class="tab-btn-container">
+            <button class="tab-btn active" onclick="showLoginForm('student')">Student Login</button>
+            <button class="tab-btn" onclick="showLoginForm('teacher')">Teacher Login</button>
+        </div>
+    </div>
+    <div class="login-container">
+        <form action="" method="post" class="login-form student" id="studentLoginForm" >
+            <label for="text" class="form-label">Student Roll No:</label>
+            <input type="text" class="login-input" id="rollNo" name="rollNo" placeholder="Student Roll Number" required >
+            <div class="error-message"></div>
+            <label for="date" class="form-label">Student DOB:</label>
+            <input type="date" class="login-input" id="dob" name="dob" placeholder="Date of Birth" required>
+            <div class="error-message"></div>
+            <button type="submit" id="Login">Login</button>
+        </form>
+        <form action="" method="post" class="login-form teacher" id="teacherLoginForm" >
+            <div class="mb-3">
+                <label for="email" class="form-label">Teacher Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Teacher Email" required >
+                <div class="mb-3 error-message"></div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <div class="mb-3 error-message"></div>
+            </div>
+            <button type="submit" class="btn btn-primary"  id="Login">Login</button>
+        </form>
+        
+        
+    </div>
+   
+    <script src="/js/script.js"></script>
+   
+ 
+</body>
+</html>
